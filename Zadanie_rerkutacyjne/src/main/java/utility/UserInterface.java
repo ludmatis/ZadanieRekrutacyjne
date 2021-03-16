@@ -46,8 +46,11 @@ public class UserInterface {
                 case "3":
                     if (productService.getProducts().isEmpty()) {
                         System.out.println("Create products before discount");
-                    } else if (productService.getDiscount() != null && generateDiscountWarning()) {
-                        generateDiscount();
+                    } else if (productService.getDiscount() != null){
+                        if(generateDiscountWarning()){
+                            generateDiscount();
+                            break;
+                        }
                     } else {
                         generateDiscount();
                     }

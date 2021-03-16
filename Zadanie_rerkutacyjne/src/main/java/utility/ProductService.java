@@ -11,6 +11,7 @@ public class ProductService {
 
     private Integer discount;
     private List<Product> products;
+    private static final Integer DEFAULT_DISCOUNT = 1000;
 
     public ProductService() {
         products = new ArrayList<>();
@@ -46,7 +47,7 @@ public class ProductService {
         products.add(new Product("Product3", 320));
         products.add(new Product("Product4", 250));
         products.add(new Product("Product5", 890));
-        this.setDiscount(1000);
+        this.setDiscount(DEFAULT_DISCOUNT);
     }
 
     public void printProducts() {
