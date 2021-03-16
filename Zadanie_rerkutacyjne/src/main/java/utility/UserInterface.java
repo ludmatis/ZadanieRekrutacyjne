@@ -15,7 +15,7 @@ public class UserInterface {
     public void runUserInterface() {
         String user_input;
         boolean finished = false;
-        boolean create_new_list = false;
+        boolean create_new_list;
         while (!finished) {
             userInterfaceInfo();
             user_input = scanner.next();
@@ -56,10 +56,7 @@ public class UserInterface {
                     }
                     break;
                 case "4":
-                    boolean discount_exists = false;
-                    if (productService.getDiscount() != null) {
-                        discount_exists = true;
-                    } else {
+                    if (productService.getDiscount() == null) {
                         System.out.println("No inserted discount");
                         break;
                     }
@@ -79,11 +76,11 @@ public class UserInterface {
                     break;
                 case "6":
                     finished = true;
+                    scanner.close();
                     break;
                 default:
                     break;
             }
-            create_new_list = false;
         }
 
     }
@@ -106,7 +103,6 @@ public class UserInterface {
                     break;
                 case "n":
                     finished = true;
-                    scanner.close();
             }
         }
     }
